@@ -89,7 +89,7 @@ func RegisterAuthzServiceServer(s grpc.ServiceRegistrar, srv AuthzServiceServer)
 }
 
 func _AuthzService_Authorize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AuthorizeReq)
+	in := new(AuthorizeReq) //new authotization feature
 	if err := dec(in); err != nil {
 		return nil, err
 	}
