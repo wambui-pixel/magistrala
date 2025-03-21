@@ -163,22 +163,22 @@ services:
         bind:
           create_host_path: true
 
-  ui-backend-db:
-    image: postgres:16.2-alpine
-    container_name: magistrala-ui-backend-db
-    restart: on-failure
-    command: postgres -c "max_connections=${SMQ_POSTGRES_MAX_CONNECTIONS}"
-    environment:
-      POSTGRES_USER: ${MG_UI_BACKEND_DB_USER}
-      POSTGRES_PASSWORD: ${MG_UI_BACKEND_DB_PASS}
-      POSTGRES_DB: ${MG_UI_BACKEND_DB_NAME}
-      SMQ_POSTGRES_MAX_CONNECTIONS: ${SMQ_POSTGRES_MAX_CONNECTIONS}
-    ports:
-      - 6008:5432
-    networks:
-      - magistrala-base-net
-    volumes:
-      - magistrala-ui-backend-db-volume:/var/lib/postgresql/data
+  # ui-backend-db:
+  #   image: postgres:16.2-alpine
+  #   container_name: magistrala-ui-backend-db
+  #   restart: on-failure
+  #   command: postgres -c "max_connections=${SMQ_POSTGRES_MAX_CONNECTIONS}"
+  #   environment:
+  #     POSTGRES_USER: ${MG_UI_BACKEND_DB_USER}
+  #     POSTGRES_PASSWORD: ${MG_UI_BACKEND_DB_PASS}
+  #     POSTGRES_DB: ${MG_UI_BACKEND_DB_NAME}
+  #     SMQ_POSTGRES_MAX_CONNECTIONS: ${SMQ_POSTGRES_MAX_CONNECTIONS}
+  #   ports:
+  #     - 6008:5432
+  #   networks:
+  #     - magistrala-base-net
+  #   volumes:
+  #     - magistrala-ui-backend-db-volume:/var/lib/postgresql/data
 
   re-db:
     image: postgres:16.2-alpine
